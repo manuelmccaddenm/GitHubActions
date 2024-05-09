@@ -1,0 +1,18 @@
+name: Run ls -la
+
+on: [push, pull_request]
+
+jobs:
+  list_files:
+    name: List Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: List files in root directory
+        run: ls -la
+
+      - name: List files in .github/workflows directory
+        run: ls -la .github/workflows
